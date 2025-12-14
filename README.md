@@ -27,17 +27,13 @@ In between stages player can choose passive skills or other customisations
 
 # Current task list
 **Create an MVP similar to BoI**
-Project setup
-/root (git root)
-  /title0 (Godot root)
-    /assets (all graphics and audio assets)
-    /sprites
-    /game
-    /character
-    /stage
-    /ui
     
-All tasks below includes setting up gdscript, tscn scene file, assigning assets and integrating them together, with no runtime or compile errors. All scripts are modular for imports and extendable for modification, ie: if currently enemy can only chase and damage player by collission, we can add enemy shooting projectile to the current enemy gdscript.
+All tasks below includes:
+- uses Godot 4.5
+- setting up gdscript, tscn scene file, assigning assets and integrating them together
+- all scripts are modular for imports and extensible for modification, ie: if currently enemy can only chase and damage player by collission, we can add enemy shooting projectile to the current enemy gdscript.
+- setting up placeholder graphics and sprites
+- the project results in a godot 4.5 project with no runtime or compile errors.
 
 1. **Setup enemy - setup all behaviours similar to BoI enemy**
   - enemy state machine
