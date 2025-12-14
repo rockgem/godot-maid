@@ -108,6 +108,7 @@ All tasks below includes:
   - Save
   - Exit (close)
   
+Below is project structure from chatgpt, please follow this as a general guideline  
   
   root
   │
@@ -142,10 +143,3 @@ All tasks below includes:
   └── global/              # Global data and state
       ├── global.gd        # Global script (e.g., managing singleton or auto-loaded data)
       └── constants.gd     # Global constants (e.g., game modes, difficulty levels)
-
-Nexts:
-- Audio
-- Save game
-- Inventory
-- Skills
-- Summon
