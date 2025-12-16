@@ -28,6 +28,8 @@ func process_state(delta):
 		anim_tree.get('parameters/playback').travel('run')
 		
 		state_machine.change_state_by_name('Run')
+		
+		state_machine.root_entity.direction = vel
 	else:
 		anim_tree.get('parameters/playback').travel('idle')
 		

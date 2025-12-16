@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var vel = Vector2.ZERO
+var direction = Vector2.ZERO
 var move_speed = 100.0
 
 @onready var anim_tree = $AnimationTree
@@ -16,8 +16,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		attack()
+	
+	$Aim.look_at(global_position + direction)
 
 
 func attack():
-	print('att')
 	state_machine.change_state_by_name('Attack')
