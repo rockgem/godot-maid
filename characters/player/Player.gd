@@ -6,7 +6,7 @@ var move_speed = 100.0
 
 @onready var anim_tree = $AnimationTree
 @onready var state_machine: StateMachine = $StateMachine
-
+@onready var hitcast = $Aim/Hitcast
 
 
 func _ready() -> void:

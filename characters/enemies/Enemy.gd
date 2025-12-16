@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _on_hurtbox_hit() -> void:
-	pass # Replace with function body.
+	$HitFX.play("hit")
 
 
 func _on_hurtbox_zero() -> void:

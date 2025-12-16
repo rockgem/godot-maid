@@ -535,6 +535,7 @@ collision_mask = 16
 [node name="Hitcast" type="RayCast2D" parent="Aim"]
 target_position = Vector2(20, 0)
 collision_mask = 4
+collide_with_areas = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "root_entity") instance=ExtResource("4_ibj0t")]
 initial_state = NodePath("Idle")

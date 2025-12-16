@@ -20,6 +20,10 @@ func process_state(delta):
 	else:
 		state_machine.change_state_by_name('Idle')
 		is_done = false
+		
+		var obj = state_machine.root_entity.hitcast.get_collider()
+		if obj:
+			obj.take_damage(1)
 
 
 func on_animation_finished(animation_name: String):
