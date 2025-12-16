@@ -2,13 +2,11 @@ extends State
 
 var vel = Vector2.ZERO
 var anim_tree
-var state_machine: StateMachine
 
 
 func _ready() -> void:
 	await get_tree().physics_frame
 	
-	state_machine = get_parent()
 	anim_tree = state_machine.root_entity.anim_tree
 
 

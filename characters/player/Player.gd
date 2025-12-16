@@ -16,6 +16,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		attack()
+	if Input.is_action_just_pressed("roll"):
+		state_machine.change_state_by_name('Roll')
 	
 	$Aim.look_at(global_position + direction)
 

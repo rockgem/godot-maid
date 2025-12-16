@@ -9,8 +9,12 @@ var is_active = false
 var current_state: State
 
 
-
 func _ready() -> void:
+	
+	# once the state and its children (State) are loaded, set the self as reference (i dont like typing the shit for 100x times)
+	for i: State in get_children():
+		i.state_machine = self
+	
 	await get_tree().physics_frame
 	
 	is_active = true
