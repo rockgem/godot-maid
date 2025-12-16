@@ -34,4 +34,10 @@ func change_state(state: State):
 
 
 func change_state_by_name(state_name: String):
+	
+	# interesting.. report to godot issues
+	#var t = find_child(state_name) if find_child(state_name) != null else null
+	#if t:
+		#change_state(t as State)
+	
 	change_state(find_child(state_name) as State)
