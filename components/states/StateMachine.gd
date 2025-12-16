@@ -3,25 +3,35 @@ class_name StateMachine
 
 
 @export var initial_state: State
-var root_entity
+@export var root_entity: Node2D
 
+var is_active = false
 var current_state: State
 
 
 
 func _ready() -> void:
 	await get_tree().physics_frame
-	root_entity = get_parent()
+	
+	is_active = true
+	current_state = initial_state
 
 
 func _physics_process(delta: float) -> void:
-	if current_state:
+	if current_state and is_active:
 		current_state.process_state(delta)
 
 
 func change_state(state: State):
+	if state == current_state:
+		return
+	
 	if current_state:
-		current_state.state_exited()
+		current_state.exit_state()
 	
 	current_state = state
 	current_state.enter_state()
+
+
+func change_state_by_name(state_name: String):
+	change_state(find_child(state_name) as State)
