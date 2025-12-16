@@ -17,4 +17,8 @@ func load_game():
 
 
 func get_data(path: String):
-	pass
+	var f = FileAccess.open(path, FileAccess.READ)
+	var j = JSON.new()
+	j.parse(f.get_as_text())
+	
+	return j.data
