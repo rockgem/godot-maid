@@ -6,6 +6,9 @@ var move_speed = 100.0
 
 
 
+func _ready() -> void:
+	pass
+
 
 func _physics_process(delta: float) -> void:
 	vel.x = Input.get_axis('ui_left', 'ui_right')
@@ -23,3 +26,12 @@ func _physics_process(delta: float) -> void:
 	velocity = vel * move_speed
 	
 	move_and_slide()
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_released("attack"):
+		attack()
+
+
+func attack():
+	pass
