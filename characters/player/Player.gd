@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 
 var direction = Vector2.ZERO
@@ -13,7 +14,7 @@ var gold = 100
 
 
 func _ready() -> void:
-	pass
+	ManagerGame.global_player_ref = self
 
 
 func _physics_process(delta: float) -> void:

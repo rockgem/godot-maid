@@ -4,6 +4,10 @@ extends Node
 var player_data = {}
 
 
+var global_map_ref: MainMap
+var global_player_ref: Player
+
+
 func _ready() -> void:
 	player_data = get_data("res://scripts/player_data.json")
 
