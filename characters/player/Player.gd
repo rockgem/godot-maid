@@ -8,6 +8,9 @@ var move_speed = 100.0
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hitcast = $Aim/Hitcast
 
+var mp = 25
+var gold = 100
+
 
 func _ready() -> void:
 	pass
