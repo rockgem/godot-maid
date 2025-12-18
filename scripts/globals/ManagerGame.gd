@@ -34,3 +34,10 @@ func get_data(path: String):
 	j.parse(f.get_as_text())
 	
 	return j.data
+
+
+func pop_to_ui(instance):
+	for i in $Popups.get_children():
+		i.queue_free()
+	
+	$Popups.add_child(instance)

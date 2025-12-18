@@ -4,3 +4,6 @@
 
 [node name="ManagerGame" type="Node"]
 script = ExtResource("1_h5hxy")
+
+[node name="Popups" type="CanvasLayer" parent="."]
+layer = 100
