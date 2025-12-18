@@ -7,6 +7,9 @@ func enter_state():
 
 
 func process_state(delta):
+	if state_machine.current_state.name == 'Hit':
+		return
+	
 	state_machine.root_entity.nav_agent.target_position = ManagerGame.global_player_ref.global_position
 	
 	if state_machine.root_entity.global_position.distance_to(ManagerGame.global_player_ref.global_position) > 16:

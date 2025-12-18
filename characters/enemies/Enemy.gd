@@ -4,7 +4,7 @@ extends Node2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
-var move_speed = 80.0
+var move_speed = 50.0
 var safe_vel: Vector2
 
 func _on_hurtbox_hit() -> void:

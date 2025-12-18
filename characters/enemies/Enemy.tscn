@@ -57,7 +57,7 @@ script = ExtResource("1_47f7g")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 5.0
-max_speed = 1.0
+max_speed = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7uut2")

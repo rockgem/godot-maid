@@ -18,9 +18,11 @@ func process_state(delta):
 		anim_tree.get('parameters/playback').travel('attack')
 		
 		if is_processed == false:
-			var obj = state_machine.root_entity.hitcast.get_collider()
+			var obj = state_machine.root_entity.hitcast.collision_result
+			print(obj)
 			if obj:
-				obj.take_damage(1)
+				for o in obj:
+					o['collider'].take_damage(1)
 			is_processed = true
 	else:
 		state_machine.change_state_by_name('Idle')
