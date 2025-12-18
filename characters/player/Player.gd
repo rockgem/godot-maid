@@ -33,10 +33,12 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released('mouse_up'):
-		$Camera2D.zoom += Vector2(0.1, 0.1)
+		if $Camera2D.zoom < Vector2(2, 2):
+			$Camera2D.zoom += Vector2(0.1, 0.1)
 	
 	if event.is_action_released('mouse_down'):
-		$Camera2D.zoom -= Vector2(0.1, 0.1)
+		if $Camera2D.zoom > Vector2(.7, .7):
+			$Camera2D.zoom -= Vector2(0.1, 0.1)
 
 
 func attack():
