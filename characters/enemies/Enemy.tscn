@@ -37,9 +37,8 @@ max_speed = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_oggmm")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.42565936
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_tsqwt")]
 collision_layer = 4
