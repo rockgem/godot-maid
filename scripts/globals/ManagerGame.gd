@@ -1,5 +1,7 @@
 extends Node
 
+var SAVE_PATH = 'user://player_data.json'
+
 
 var player_data = {}
 
@@ -10,11 +12,16 @@ var global_ui_ref: UI
 
 
 func _ready() -> void:
-	player_data = get_data("res://scripts/player_data.json")
+	if FileAccess.file_exists(SAVE_PATH):
+		player_data = get_data(SAVE_PATH)
+	else:
+		player_data = get_data("res://scripts/player_data.json")
 
 
 func save_game():
-	pass
+	var f = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	f.store_string(JSON.stringify(player_data))
+	f.close()
 
 
 func load_game():
