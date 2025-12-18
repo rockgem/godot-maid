@@ -3,7 +3,7 @@ extends State
 @export var max_distance = 70.0
 
 func enter_state():
-	pass
+	state_machine.root_entity.animated_sprite.play('run')
 
 
 func process_state(delta):
@@ -16,6 +16,8 @@ func process_state(delta):
 		var path = state_machine.root_entity.nav_agent.get_next_path_position()
 		var dir = state_machine.root_entity.global_position.direction_to(path)
 		state_machine.root_entity.nav_agent.velocity = dir
+		
+		state_machine.root_entity.direction = dir
 		
 		state_machine.root_entity.global_position += state_machine.root_entity.safe_vel * state_machine.root_entity.move_speed * delta
 	

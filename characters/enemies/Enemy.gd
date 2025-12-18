@@ -2,7 +2,17 @@ extends Node2D
 
 
 @onready var state_machine: StateMachine = $StateMachine
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+
+var direction = Vector2.ZERO : 
+	set(value):
+		direction = value
+		
+		if direction.x < -0.5:
+			animated_sprite.flip_h = true
+		else:
+			animated_sprite.flip_h = false
 
 var move_speed = 50.0
 var safe_vel: Vector2

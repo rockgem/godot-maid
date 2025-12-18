@@ -16,6 +16,8 @@ func enter_state():
 func process_state(delta):
 	tick += delta
 	
+	state_machine.root_entity.animated_sprite.play('idle')
+	
 	if tick > idle_time:
 		idle_time = randf_range(3, 10)
 		tick = 0.0

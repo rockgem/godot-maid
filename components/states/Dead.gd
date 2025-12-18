@@ -2,7 +2,7 @@ extends State
 
 
 func enter_state():
-	pass
+	state_machine.root_entity.animated_sprite.play('death')
 
 
 func process_state(delta):
