@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://h8qv3casfwpd"]
+[gd_scene load_steps=4 format=4 uid="uid://h8qv3casfwpd"]
 
 [ext_resource type="Script" uid="uid://bqvit6egva4ni" path="res://scenes/Main.gd" id="1_elqb8"]
 [ext_resource type="PackedScene" uid="uid://ojf1k4qk277a" path="res://characters/player/Player.tscn" id="2_rvslj"]
 [ext_resource type="TileSet" uid="uid://bivri77bhibmu" path="res://environment/new_tile_set.tres" id="3_0bbpv"]
-[ext_resource type="PackedScene" uid="uid://j7ieni2souxc" path="res://characters/enemies/Enemy.tscn" id="4_rarhs"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -21,12 +20,3 @@ tile_set = ExtResource("3_0bbpv")
 
 [node name="Player" parent="." instance=ExtResource("2_rvslj")]
 position = Vector2(331, 197)
-
-[node name="Enemy" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(151, 77)
-
-[node name="Enemy2" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(524, 124)
-
-[node name="Enemy3" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(490, 314)

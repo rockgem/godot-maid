@@ -54,6 +54,11 @@ _data = {
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_47f7g")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 5.0
+max_speed = 1.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7uut2")
 flip_h = true
@@ -89,5 +94,6 @@ root_entity = NodePath("..")
 
 [node name="Dead" parent="StateMachine" instance=ExtResource("10_oggmm")]
 
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
 [connection signal="zero" from="Hurtbox" to="." method="_on_hurtbox_zero"]
