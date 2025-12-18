@@ -31,6 +31,14 @@ func _physics_process(delta: float) -> void:
 	$Aim.look_at(global_position + direction)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released('mouse_up'):
+		$Camera2D.zoom += Vector2(0.1, 0.1)
+	
+	if event.is_action_released('mouse_down'):
+		$Camera2D.zoom -= Vector2(0.1, 0.1)
+
+
 func attack():
 	state_machine.change_state_by_name('Attack')
 
