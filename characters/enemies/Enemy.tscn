@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://j7ieni2souxc"]
+[gd_scene load_steps=15 format=3 uid="uid://j7ieni2souxc"]
 
 [ext_resource type="Texture2D" uid="uid://cuvhmu8eqlfs4" path="res://assets/enemies/Skeleton.png" id="1_7uut2"]
 [ext_resource type="Script" uid="uid://102y1cy1408a" path="res://characters/enemies/Enemy.gd" id="1_47f7g"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ehcv8tt4s8ut" path="res://components/states/Chase.tscn" id="6_h36yp"]
 [ext_resource type="PackedScene" uid="uid://bvyb3m1it0esv" path="res://components/states/Patrol.tscn" id="7_vi68g"]
 [ext_resource type="PackedScene" uid="uid://b0frsmfub0jdg" path="res://components/states/Aggresive.tscn" id="8_5tspa"]
+[ext_resource type="PackedScene" uid="uid://bap5i0nkfomg0" path="res://components/states/Hit.tscn" id="9_g664o"]
+[ext_resource type="PackedScene" uid="uid://dn1fqnvii2wo4" path="res://components/states/Dead.tscn" id="10_oggmm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47f7g"]
 
@@ -82,6 +84,10 @@ root_entity = NodePath("..")
 [node name="Patrol" parent="StateMachine" instance=ExtResource("7_vi68g")]
 
 [node name="Aggresive" parent="StateMachine" instance=ExtResource("8_5tspa")]
+
+[node name="Hit" parent="StateMachine" instance=ExtResource("9_g664o")]
+
+[node name="Dead" parent="StateMachine" instance=ExtResource("10_oggmm")]
 
 [connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
 [connection signal="zero" from="Hurtbox" to="." method="_on_hurtbox_zero"]
