@@ -19,7 +19,6 @@ func process_state(delta):
 		
 		if is_processed == false:
 			var obj = state_machine.root_entity.hitcast.collision_result
-			print(obj)
 			if obj:
 				for o in obj:
 					o['collider'].take_damage(1)

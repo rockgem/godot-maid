@@ -45,13 +45,7 @@ func attack():
 	state_machine.change_state_by_name('Attack')
 
 
-func _on_hurtbox_hit() -> void:
-	$HitFX.play("hit")
-	
-	ManagerGame.global_ui_ref.refresh_hearts_display()
-
-
-func _on_hurtbox_zero() -> void:
+func death():
 	hurtbox.disable()
 	can_move = false
 	
@@ -59,6 +53,14 @@ func _on_hurtbox_zero() -> void:
 	$AnimationPlayer.active = true
 	$AnimationPlayer.play("death")
 	
-	state_machine.change_state_by_name('Death')
-	
 	get_tree().paused = true
+
+
+func _on_hurtbox_hit() -> void:
+	$HitFX.play("hit")
+	
+	ManagerGame.global_ui_ref.refresh_hearts_display()
+
+
+func _on_hurtbox_zero() -> void:
+	state_machine.change_state_by_name('Death')

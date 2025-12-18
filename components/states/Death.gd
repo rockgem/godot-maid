@@ -2,7 +2,7 @@ extends State
 
 
 func enter_state():
-	pass
+	state_machine.root_entity.death()
 
 
 func process_state(delta):

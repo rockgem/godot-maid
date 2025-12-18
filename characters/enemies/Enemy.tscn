@@ -44,6 +44,7 @@ autoplay = "idle"
 [node name="Hurtbox" parent="." instance=ExtResource("2_tsqwt")]
 collision_layer = 4
 collision_mask = 8
+hp = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -1)
