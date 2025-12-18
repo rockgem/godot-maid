@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://j7ieni2souxc"]
+[gd_scene load_steps=16 format=3 uid="uid://j7ieni2souxc"]
 
 [ext_resource type="Script" uid="uid://102y1cy1408a" path="res://characters/enemies/Enemy.gd" id="1_47f7g"]
 [ext_resource type="SpriteFrames" uid="uid://b22gr6r86sp08" path="res://resources/anims/skeleton.tres" id="2_oggmm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b0frsmfub0jdg" path="res://components/states/Aggresive.tscn" id="8_5tspa"]
 [ext_resource type="PackedScene" uid="uid://bap5i0nkfomg0" path="res://components/states/Hit.tscn" id="9_g664o"]
 [ext_resource type="PackedScene" uid="uid://dn1fqnvii2wo4" path="res://components/states/Dead.tscn" id="10_oggmm"]
+[ext_resource type="PackedScene" uid="uid://d0vikb505jj3w" path="res://components/states/EnemyAttack.tscn" id="11_77q7a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47f7g"]
 
@@ -68,6 +69,8 @@ root_entity = NodePath("..")
 [node name="Hit" parent="StateMachine" instance=ExtResource("9_g664o")]
 
 [node name="Dead" parent="StateMachine" instance=ExtResource("10_oggmm")]
+
+[node name="EnemyAttack" parent="StateMachine" instance=ExtResource("11_77q7a")]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]

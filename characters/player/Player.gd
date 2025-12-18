@@ -8,13 +8,18 @@ var move_speed = 100.0
 @onready var anim_tree = $AnimationTree
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hitcast = $Aim/Hitcast
+@onready var hurtbox = $Hurtbox
 
 var mp = 25
 var gold = 100
+var hp_max = 6
 
+var can_move = true
 
 func _ready() -> void:
 	ManagerGame.global_player_ref = self
+	
+	hurtbox.hp = hp_max
 
 
 func _physics_process(delta: float) -> void:
@@ -28,3 +33,17 @@ func _physics_process(delta: float) -> void:
 
 func attack():
 	state_machine.change_state_by_name('Attack')
+
+
+func _on_hurtbox_hit() -> void:
+	$HitFX.play("hit")
+	
+	ManagerGame.global_ui_ref.refresh_hearts_display()
+
+
+func _on_hurtbox_zero() -> void:
+	hurtbox.disable()
+	
+	queue_free()
+	
+	can_move = false

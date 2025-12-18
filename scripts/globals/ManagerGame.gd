@@ -6,6 +6,7 @@ var player_data = {}
 
 var global_map_ref: MainMap
 var global_player_ref: Player
+var global_ui_ref: UI
 
 
 func _ready() -> void:

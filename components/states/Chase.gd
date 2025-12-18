@@ -24,6 +24,8 @@ func process_state(delta):
 		state_machine.root_entity.global_position += state_machine.root_entity.safe_vel * state_machine.root_entity.move_speed * delta
 	else:
 		state_machine.root_entity.animated_sprite.play('idle')
+		
+		state_machine.change_state_by_name('EnemyAttack')
 		return
 	
 	if state_machine.root_entity.global_position.distance_to(ManagerGame.global_player_ref.global_position) > max_distance:
