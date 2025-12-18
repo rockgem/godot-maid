@@ -1,10 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://j7ieni2souxc"]
+[gd_scene load_steps=12 format=3 uid="uid://j7ieni2souxc"]
 
 [ext_resource type="Texture2D" uid="uid://cuvhmu8eqlfs4" path="res://assets/enemies/Skeleton.png" id="1_7uut2"]
 [ext_resource type="Script" uid="uid://102y1cy1408a" path="res://characters/enemies/Enemy.gd" id="1_47f7g"]
 [ext_resource type="PackedScene" uid="uid://b6b3cl70v26ev" path="res://components/Hurtbox.tscn" id="2_tsqwt"]
+[ext_resource type="PackedScene" uid="uid://b5tx7kl5xocut" path="res://components/states/StateMachine.tscn" id="4_n6v47"]
+[ext_resource type="PackedScene" uid="uid://ctv3gyh4fbg0v" path="res://components/states/EnemyIdle.tscn" id="5_n6v47"]
+[ext_resource type="PackedScene" uid="uid://ehcv8tt4s8ut" path="res://components/states/Chase.tscn" id="6_h36yp"]
+[ext_resource type="PackedScene" uid="uid://bvyb3m1it0esv" path="res://components/states/Patrol.tscn" id="7_vi68g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47f7g"]
+
+[sub_resource type="Animation" id="Animation_8culk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_47f7g"]
 resource_name = "hit"
@@ -21,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(0.8862745, 0.39215687, 0.44705883, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_8culk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8culk"]
@@ -65,6 +69,16 @@ shape = SubResource("CircleShape2D_47f7g")
 libraries = {
 &"": SubResource("AnimationLibrary_8culk")
 }
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "root_entity") instance=ExtResource("4_n6v47")]
+initial_state = NodePath("EnemyIdle")
+root_entity = NodePath("..")
+
+[node name="EnemyIdle" parent="StateMachine" instance=ExtResource("5_n6v47")]
+
+[node name="Chase" parent="StateMachine" instance=ExtResource("6_h36yp")]
+
+[node name="Patrol" parent="StateMachine" instance=ExtResource("7_vi68g")]
 
 [connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
 [connection signal="zero" from="Hurtbox" to="." method="_on_hurtbox_zero"]
