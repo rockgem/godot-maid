@@ -59,4 +59,6 @@ func _on_hurtbox_zero() -> void:
 	$AnimationPlayer.active = true
 	$AnimationPlayer.play("death")
 	
+	state_machine.change_state_by_name('Death')
+	
 	get_tree().paused = true

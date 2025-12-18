@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bvyb3m1it0esv" path="res://components/states/Patrol.tscn" id="7_vi68g"]
 [ext_resource type="PackedScene" uid="uid://b0frsmfub0jdg" path="res://components/states/Aggresive.tscn" id="8_5tspa"]
 [ext_resource type="PackedScene" uid="uid://bap5i0nkfomg0" path="res://components/states/Hit.tscn" id="9_g664o"]
-[ext_resource type="PackedScene" uid="uid://dn1fqnvii2wo4" path="res://components/states/Dead.tscn" id="10_oggmm"]
 [ext_resource type="PackedScene" uid="uid://d0vikb505jj3w" path="res://components/states/EnemyAttack.tscn" id="11_77q7a"]
+[ext_resource type="PackedScene" uid="uid://bkygp3j0tkpm5" path="res://components/states/Death.tscn" id="12_ewfb7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47f7g"]
 
@@ -68,9 +68,9 @@ root_entity = NodePath("..")
 
 [node name="Hit" parent="StateMachine" instance=ExtResource("9_g664o")]
 
-[node name="Dead" parent="StateMachine" instance=ExtResource("10_oggmm")]
-
 [node name="EnemyAttack" parent="StateMachine" instance=ExtResource("11_77q7a")]
+
+[node name="Death" parent="StateMachine" instance=ExtResource("12_ewfb7")]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
