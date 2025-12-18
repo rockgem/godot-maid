@@ -43,7 +43,10 @@ func _on_hurtbox_hit() -> void:
 
 func _on_hurtbox_zero() -> void:
 	hurtbox.disable()
-	
-	queue_free()
-	
 	can_move = false
+	
+	anim_tree.active = false
+	$AnimationPlayer.active = true
+	$AnimationPlayer.play("death")
+	
+	get_tree().paused = true
